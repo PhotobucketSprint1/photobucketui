@@ -74,7 +74,7 @@ function EditProfile(props){
                 <input type="text" className="form-control" data-testid="usernameTest" onChange={(e)=>{
                     setUserName(e.target.value)
                 }} />
-                <p style={{color:'red'}}>{usernameV}</p>
+                <p style={{color:'red'}} data-testid="invalidUsernameTest" >{usernameV}</p>
             </div>
             <div className="form-group col-md-6">
                 <label>Email</label>
