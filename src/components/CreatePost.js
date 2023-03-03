@@ -130,7 +130,7 @@ function CreatePost(){
                     setTitle(e.target.value);
                 }} />
         </div>
-        <p style={{color:'red'}}>{titleV}</p>
+        <p style={{color:'red'}} data-testid="invalidTitleTest">{titleV}</p>
       </div>
         
         <div className="form-group">
