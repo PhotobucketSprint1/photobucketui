@@ -7,12 +7,13 @@ function ViewAllPosts(){
     const [ posts, setPosts ] = useState([]);
     const [postId, setPostId] = useState('');
   const[message,setMessage]= useState();
+
 //   const handlePostIdChange = (event) => {
 //     setPostId(event.target.value);
 //   };
 
     useEffect(()=>{
-        axios.get("http://localhost:8080/user/getPostsByUser/2")
+        axios.get("http://localhost:8080/admin/viewPostDetails")
             .then((res)=>{
                 console.log(res.data);
                 setPosts(res.data);

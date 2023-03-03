@@ -65,10 +65,7 @@ function EditProfile(props){
                     console.log(err);
             })
         }
-
-        
     }
-
     return(
         <div>
             <SuccessMsg msg="Profile Updated" status={show} />
@@ -86,7 +83,6 @@ function EditProfile(props){
                 }}/>
                 <p style={{color:'red'}}>{emailV}</p>
             </div>
-           
             <br/>
             <button className="btn btn-primary" data-testid="editBtnTest"  onClick={saveProfile}>Save</button> &nbsp;&nbsp;
             <Link to="/user/dashboard/userProfile" type="submit" className="btn btn-primary" >Back</Link>
