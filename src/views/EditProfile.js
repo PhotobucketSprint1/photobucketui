@@ -33,6 +33,7 @@ function EditProfile(props){
 
 
     function saveProfile(){
+
         if(username == undefined){
             setUserNameV("Please enter username");
             return;
@@ -45,28 +46,27 @@ function EditProfile(props){
         }else{
             setEmailV("");
         }
-        if(password == undefined){
-            setPasswordV("Please enter password");
-            return;
-        }else{
-            setPasswordV("");
+       
+
+        if(username != undefined && email != undefined){
+            let userDetails = {
+                emailId : email,
+                userName : username
+            }
+            console.log("SD");
+    
+            // use context api to take id
+            axios.put(`http://localhost:8080/user/editprofile/${userid}`, userDetails)
+                .then((res)=>{
+                    console.log(res.data);
+                    setShow(false);
+                })
+                .catch((err)=>{
+                    console.log(err);
+            })
         }
 
-        let userDetails = {
-            emailId : email,
-            userName : username
-        }
-
-        // use context api to take id
-        axios.put(`http://localhost:8080/user/editprofile/${userid}`, userDetails)
-            .then((res)=>{
-                console.log(res.data);
-                setShow(false);
-            })
-            .catch((err)=>{
-                console.log(err);
-            })
-
+        
     }
 
     return(
@@ -88,7 +88,7 @@ function EditProfile(props){
             </div>
            
             <br/>
-            <button type="submit" className="btn btn-primary" data-testid="editBtnTest"  onClick={saveProfile}>Save</button> &nbsp;&nbsp;
+            <button className="btn btn-primary" data-testid="editBtnTest"  onClick={saveProfile}>Save</button> &nbsp;&nbsp;
             <Link to="/user/dashboard/userProfile" type="submit" className="btn btn-primary" >Back</Link>
         </div>
     )
