@@ -60,7 +60,7 @@ function AddProfilePic(){
                 <div className="form-group col-md-6">
                     <label >Choose Picture</label> 
                     <input type="file" className="form-control" accept="image/jpeg,image/png,image/gif" data-testid="profileTest" onChange={handleImg} />
-                    <p style={{color:'red'}}>{profileV}</p>
+                    <p style={{color:'red'}} data-testid="invalidProfilePic">{profileV}</p>
                 </div>
                 <button type="submit" className="btn btn-primary" data-testid="saveBtnTest" onClick={handleProfilePic} >Change Picture</button> &nbsp;&nbsp;
                 <Link to="/user/dashboard/userProfile" type="submit" className="btn btn-primary" >Back</Link>

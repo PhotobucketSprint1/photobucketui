@@ -62,7 +62,7 @@ function EditPostPicture(){
                 <div className="form-group col-md-6">
                     <label>Choose Picture</label> 
                     <input type="file" className="form-control" accept="image/jpeg,image/png,image/gif" data-testid="postPicTest" onChange={handleImg} />
-                    <p style={{color:'red'}}>{postPicV}</p>
+                    <p style={{color:'red'}} data-testid="invalidImage" >{postPicV}</p>
                 </div>
                 <button type="submit" className="btn btn-success" data-testid="changeBtnTest" onClick={handlePostPic} >Change Post Picture</button> &nbsp;&nbsp;
                 <Link to="/user/dashboard/viewAllUserPost" type="submit" className="btn btn-primary" >Back</Link>
