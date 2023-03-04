@@ -1,6 +1,8 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CommentForm from "./CommentForm";
+import LikeButton from "./LikeButton";
 
 import SuccessMsg from "./SuccessMsg";
 
@@ -10,7 +12,9 @@ function PostCard(props){
     const [ hiddenImg, setHiddenImg ] = useState(true);
     const [ show, setShow ] = useState(true);
     const [ showDeleteFlag, setShowDeleteFlag ] = useState(true);
-    
+    const[allcomments,setallcomments]=useState([]);
+    const[alllikes,setalllikes]=useState([]);
+
     var navigate = useNavigate();
 
     function handleViewPostById(){
@@ -24,7 +28,6 @@ function PostCard(props){
             .catch((err)=>{
                 console.log(err);
             })
-
     }
 
     function handleDelete(){
@@ -48,10 +51,36 @@ function PostCard(props){
         }
     }
 
+
     function handlePostChangeBtn(e){
         sessionStorage.setItem("postid",props.id)
         navigate("/user/dashboard/editPostPicture")
     }
+    function viewAllComments(){
+        let postId = props.id;
+        axios.get(`http://localhost:8080/user/${postId}/getcomments`)
+        .then((res)=>{
+         console.log(res.data);
+         
+         setallcomments(res.data)
+       //  navigate("http://localhost:8080/user/dashboard/viewAllUserPost")
+        })
+        .catch((err)=>{
+            console.log(err);
+    })
+}
+    function viewAllLikes(){
+        let postId=props.id;
+        axios.get(`http://localhost:8080/user/${postId}/getLikes`)
+        .then((res)=>{
+        console.log(res.data);
+        setalllikes(res.data)
+    })
+    .catch((err)=>{
+        console.log(err);
+})
+}
+    
 
     return(
         <div>
@@ -64,13 +93,21 @@ function PostCard(props){
                     <p className="card-text">{props.description}</p>
                     <img hidden={hiddenImg} src={imageSrc} alt="Post image" width="200px" height="200px" />
                     <button className="btn btn-dark" onClick={handleViewPostById} >View Full Post</button>&nbsp; &nbsp;
+
                     <button className="btn btn-danger" onClick={showModal} >Delete Post</button><p></p> <br/>
                     <button className="btn btn-primary" onClick={handlePostChangeBtn} >Change Post Picture</button> <br/>
+                    <LikeButton postId={props.id}/>
+                    <CommentForm postId={props.id} />
                     <div className="container" hidden={show} style={{marginLeft : "60px", marginTop :"10px"}} >
                         <p>Confirm Delete ?</p>
                             <button className="btn btn-success">No</button> &nbsp; &nbsp;
                             <button className="btn btn-danger" data-testid="deleteBtnTest" onClick={handleDelete}>Yes</button>
+                            
                     </div>
+                  <button className="btn btn-secondary" onClick={viewAllComments}>View Comments</button>
+                  <p>{allcomments.length}</p>
+                  <button className="btn btn-secondary" onClick={viewAllLikes}>View Likes</button>.
+                  <p>{alllikes.length}</p>
                 </div>
             </div>
         </div>
