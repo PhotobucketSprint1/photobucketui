@@ -13,7 +13,7 @@ function LeftSideMenu(){
             <ul class="list-group list-group-flush">
             <Link to="/user/dashboard/createPost" className="nav-link">
                 <li class="list-group-item">
-                    <img src={addPostIcon} width="25px" height="25px"/> &nbsp; Create Post 
+                    <img src={addPostIcon} width="25px" data-testid="createPostTest" height="25px"/> &nbsp; Create Post 
                 </li>
             </Link>
             <Link to="/user/dashboard/userProfile" className="nav-link">
@@ -23,7 +23,7 @@ function LeftSideMenu(){
                 <li class="list-group-item"><img src={feed} width="25px" height="25px"/> &nbsp; Feed</li>
             </Link>
             <Link to="/user/dashboard/friends" className="nav-link">
-                <li class="list-group-item"><img src={friends} width="25px" height="25px"/> &nbsp; Friends</li>
+                <li class="list-group-item"><img src={friends} width="25px" height="25px"/> &nbsp; Find People</li>
             </Link>
             <Link to="/user/dashboard/viewAllUserPost" className="nav-link">
                 <li class="list-group-item"><img src={viewPost} width="25px" height="25px"/> &nbsp; View All Post</li>
