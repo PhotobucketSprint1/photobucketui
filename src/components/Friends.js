@@ -34,9 +34,10 @@ function Friends(){
         <div className="container">
             
             <div className="row">
+                
             {
                 users.length > 0 ? users.map((user)=>{
-                    return <div class="col-md-4"><FriendCard id={user.id} username={user.userName} /></div>
+                    return  <div class="col-md-4"><FriendCard id={user.id} username={user.userName} /></div>
                 }) : <ErrorAlertMsg msg="You have no Friends !" status={false} />
                 
             }
