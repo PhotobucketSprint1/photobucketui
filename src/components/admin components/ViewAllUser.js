@@ -16,7 +16,8 @@ function ViewAllUser(){
   const [ changeColor, setChangeColor ] = useState(false);
 
   const [ popupMsg, setPopupMsg ] = useState("");
-
+  const[checktest,setChecktest]= useState();
+  const[checkunblock,setCheckunblock]= useState();
   //const [useridvalidation,setUseridvalidation]= useState();
   const handleUserIdChange = (event) => {
     setUserId(event.target.value);
@@ -41,7 +42,7 @@ function ViewAllUser(){
         axios.post("http://localhost:8080/admin/blockUser", { id: userId })
           .then(response => {
             console.log(response.data);
-            setMessage("Blocked");
+            setMessage("User Blocked");
             setPopupMsg("User Blocked");
             setChangeColor(true);
             setShow(false);
@@ -74,8 +75,7 @@ function ViewAllUser(){
             console.log(response.data);
             setPopupMsg("User UnBlocked");
             setShow(false);
-            setMessage("UnBlocked");
-
+            setMessage("User UnBlocked");
 
             const updatedUsers = users.map(user => {
                 if (user.id === userId) {
@@ -101,8 +101,8 @@ function ViewAllUser(){
 
     return(<div>
        
-
-        <ErrorAlertMsg msg="User Blocked" status={show} />
+        <p style={{backgroundColor:'lavender',fontSize:'30px'}} data-testid="msg">{message}</p>
+        {/* <ErrorAlertMsg msg="User Blocked" status={show} /> */}
         {/* <SuccessMsg msg="User Unblocked" status={} /> */}
 
         <table class="table">
@@ -123,27 +123,24 @@ function ViewAllUser(){
             <td>{user.emailId}</td>
             <td>
 
-            {!user.isBlocked && (
-                <button className="btn btn-danger" onClick={()=>{
+            {/* {!user.isBlocked && ( */}
+                <button className="btn btn-light"  style={{backgroundColor:'lightcoral'}} data-testid="BlockUser" onClick={()=>{
                         handleSubmit(user.id)
                     }}>Block User</button>
-              )}
-              {/* <button className="btn btn-danger" data-testid="BlockUser" onClick={()=>{
-                handleSubmit(user.id)
-              }}>Block User</button> */}
-
-              {
-                user.isBlocked && (
-                    <button className="btn btn-success" onClick={()=>{
+                   <p data-testid="sam">{checktest}</p>
+              {/* {
+                user.isBlocked && ( */}
+                    <button className="btn btn-success" style={{backgroundColor:'mediumaquamarine'}} data-testid="UnBlockUser" onClick={()=>{
                         handleUnblockUser(user.id)
                         }}>UnBlock User</button>
-                  )
-              }
+                        
+                  {/* )
+              } */}
 
               {/* <button className="btn btn-success" data-testid="unBlockUser" onClick={()=>{
                 handleUnblockUser(user.id)
               }}>UnBlock User</button> */}
-              <button className="btn btn-info">View</button>
+              {/* <button className="btn btn-info">View</button> */}
             </td>
           </tr>
         ))}

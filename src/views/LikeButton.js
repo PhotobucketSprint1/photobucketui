@@ -10,12 +10,11 @@ import React, { useState } from 'react';
        axios.put(`http://localhost:8080/user/likePost/${props.postId}/${userid}`)
        .then(response => { 
         setLiked(true);
-        alert("Your Like is saved");
        })
        .catch(error => console.log(error)); 
       }
        return (
-      <button onClick={handleLike} 
+      <button  className="btn btn-danger"  onClick={handleLike} 
       disabled={liked}>
         {liked ? 'Liked!' : 'Like'}
         </button>

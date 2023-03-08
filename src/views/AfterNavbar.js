@@ -1,4 +1,7 @@
 function AfterNavbar(){
+    const username = sessionStorage.getItem("user");
+    const parsed = JSON.parse(username).username;
+    console.log(parsed);
     return(
         <div>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
@@ -8,17 +11,17 @@ function AfterNavbar(){
             <span class="navbar-toggler-icon"></span>
         </button>
         {/* <div class="collapse navbar-collapse" id="navbarTogglerDemo02"> */}
-            {/* <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/" aria-current="page">Home</a>
-                </li>
-                <li class="nav-item">
+            {/* <ul class="navbar-nav me-auto mb-2 mb-lg-0" style={{float : "right"}}>
+                <li class="nav-item" > */}
+                    <a class="nav-link active" aria-current="page">{parsed.toUpperCase()}</a>
+                {/* </li> */}
+                {/* <li class="nav-item">
                     <a class="nav-link" href="/register" tabindex="-1" aria-disabled="true">Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login" tabindex="-1" aria-disabled="true">Profile</a>
-                </li>
-            </ul> */}
+                </li> */}
+            {/* </ul> */}
         {/* </div> */}
         </div>
     </nav>

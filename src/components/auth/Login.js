@@ -68,9 +68,9 @@ function Login(){
                 navigate("/user/dashboard");
                 console.log(e.data)
             }
-        }).catch((e)=>{
-            console.log(e.data)
-            setMessage("Invalid Username & Password")
+        }).catch((e)=>{            
+                setMessage(e.response.data);
+            // setMessage("Invalid Username & Password")
          })
         
     }
@@ -84,12 +84,12 @@ function Login(){
             <div style={{marginLeft : "150px"}}>
             <h3 style={{marginLeft : "35px"}} >User Login</h3> <br/>
         User Name   <br/>
-        <Input type="text" required onChange={handleUserName}/> <br/>
+        <Input type="text" inputProps={{"data-testid":"usernameTest"}} required onChange={handleUserName}/> <br/>
         <p style={{color:'red'}}>{userNameValidation}</p>
         Password  <br/>
-        <Input type="password" required onChange={handlePassword}/> <br/> <br/>
+        <Input type="password" inputProps={{"data-testid":"passwordTest"}} required onChange={handlePassword}/> <br/> <br/>
         <p style={{color:'red'}}>{passwordValidation}</p>
-        <Button style={{marginLeft:"50px"}} variant="contained" onClick={handleButton} >Login</Button> <br/><br/>
+        <button style={{marginLeft:"50px"}} className="btn btn-primary" data-testid="signTestBtn" onClick={handleButton} >Sign In</button> <br/><br/>
         <Link to="/register" style={{textDecoration:"none"}}> <p>Don't Have Account ?</p> </Link>
         <p style={{color:'red'}}>{message}</p><br/><br/>
         </div>

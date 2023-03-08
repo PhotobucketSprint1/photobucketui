@@ -18,7 +18,7 @@ function PostCard(props){
     var navigate = useNavigate();
 
     function handleViewPostById(){
-        let postid = props.id;
+        let postid = props.id;          
         axios.get(`http://localhost:8080/user/getPostImage/${postid}`)
             .then((res)=>{
                 console.log(res.data);
@@ -58,7 +58,7 @@ function PostCard(props){
     }
     function viewAllComments(){
         let postId = props.id;
-        axios.get(`http://localhost:8080/user/${postId}/getcomments`)
+        axios.get(`http://localhost:8080/user/getCommentsForPost/${postId}`)
         .then((res)=>{
          console.log(res.data);
          
@@ -67,6 +67,7 @@ function PostCard(props){
         })
         .catch((err)=>{
             console.log(err);
+
     })
 }
     function viewAllLikes(){
@@ -98,16 +99,21 @@ function PostCard(props){
                     <button className="btn btn-primary" onClick={handlePostChangeBtn} >Change Post Picture</button> <br/>
                     <LikeButton postId={props.id}/>
                     <CommentForm postId={props.id} />
-                    <div className="container" hidden={show} style={{marginLeft : "60px", marginTop :"10px"}} >
+                  <button className="btn btn-secondary" onClick={viewAllComments}>View Comments</button>
+                  {/* <p>{allcomments.length}</p> */}
+                  {
+                    allcomments.map((comment)=>{
+                        return <li>{comment.text} User :  {comment.username}</li>
+                    })
+                    
+                  }
+                  <button className="btn btn-secondary" onClick={viewAllLikes}>View Likes</button>.
+                  <p>{alllikes.length}</p>
+                  <div className="container" hidden={show} style={{marginLeft : "60px", marginTop :"10px"}} >
                         <p>Confirm Delete ?</p>
                             <button className="btn btn-success">No</button> &nbsp; &nbsp;
                             <button className="btn btn-danger" data-testid="deleteBtnTest" onClick={handleDelete}>Yes</button>
-                            
                     </div>
-                  <button className="btn btn-secondary" onClick={viewAllComments}>View Comments</button>
-                  <p>{allcomments.length}</p>
-                  <button className="btn btn-secondary" onClick={viewAllLikes}>View Likes</button>.
-                  <p>{alllikes.length}</p>
                 </div>
             </div>
         </div>

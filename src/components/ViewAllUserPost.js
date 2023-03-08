@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ErrorAlertMsg from "../views/ErrorAlertMsg";
 import PostCard from "../views/PostCard";
 import SuccessMsg from "../views/SuccessMsg";
+import FeedCard from "./FeedCard";
 
 
 function ViewAllUserPost(){
@@ -23,11 +24,12 @@ function ViewAllUserPost(){
 
     return(
         <div className="container">
+            <h4 data-testid="viewAllPostTest" style={{marginLeft:"350px"}}>View All Post</h4>
             
             <div className="row">
             {
                 posts.length > 0 ? posts.map((post)=>{
-                    return <div class="col-md-4"><PostCard id={post.id} title={post.title} description={post.description} /></div>
+                    return post.blocked ? <p></p> : <div class="col-md-9"><FeedCard id={post.id} title={post.title} description={post.description} blocked={post.blocked} enableDelete={false} enableEditPic={false} /></div>
                 }) : <ErrorAlertMsg msg="You have no post !" status={false} />
                 
             }

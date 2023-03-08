@@ -20,6 +20,9 @@ function LeftSideMenu(){
             <Link to="/admin/dashboard/allPosts" className="nav-link">
                 <li class="list-group-item"><img src={feed} width="25px" height="25px"/> &nbsp; View All Post</li>
             </Link>
+            {/* <Link to="/admin/dashboard/allComments" className="nav-link">
+                <li class="list-group-item"><img src={feed} width="25px" height="25px"/> &nbsp; View All Comments</li>
+            </Link> */}
             {/* <Link to="/user/dashboard/friends" className="nav-link">
                 <li class="list-group-item"><img src={friends} width="25px" height="25px"/> &nbsp; Friends</li>
             </Link> */}

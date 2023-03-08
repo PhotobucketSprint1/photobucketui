@@ -100,10 +100,14 @@ function Register(){
     return(
         <div>   
             <NavigationBar />
-            <SuccessMsg msg="User Added" status={success} />
-            <div className="container" style={{marginTop:"100px", marginLeft : "350px"}}>
+            <div style={{marginTop : "60px"}}>
+                <SuccessMsg msg="User Added" status={success} />
+            </div>
+            <div className="container" style={{marginTop:"80px", marginLeft : "350px"}}>
+            
       <form action="" method="POST" encType="multipart/form-data">
       <div className="col-xs-3">
+      
       <div className="form-group col-md-6">
           <label >Username</label><br/>
           <input type="text" data-testid="usernameTest" className="form-control" id="title" name="title" required onChange={(e)=>{

@@ -20,11 +20,10 @@ const CommentForm = ({ postId }) => {
     try {
       const response = await axios.put(`http://localhost:8080/user/addComment/${postId}/${userId}`, {
           text: commentText
-         
       });
       
+      
       console.log(response.data);
-      alert("Your comment is saved");
     } catch (error) {
       console.error(error);
     }
@@ -43,10 +42,12 @@ const CommentForm = ({ postId }) => {
   return (
     <form onSubmit={handleSubmit}>
       <textarea
+      className="form-control"
         value={commentText}
         onChange={(e) => setCommentText(e.target.value)}
         placeholder="Enter your comment here..."
         required
+        rows={2}
         style={{height:"100px",width:"100%",padding:"10px",border:"1px solid gray"}}
       />
         <button className="btn btn-dark" data-testid="submit"  onClick={handleSubmit}>Comment</button>

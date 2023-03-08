@@ -29,6 +29,9 @@ import EditProfile from './views/EditProfile';
 import Logout from './components/auth/Logout';
 import EditPostPicture from './components/EditPostPicture';
 import AdminLogin from './components/admin components/AdminLogin';
+import ViewPendingRequest from './components/ViewPendingRequest';
+import ViewFriends from './components/ViewFriends';
+import ViewAllComments from './components/admin components/ViewAllComments';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -54,6 +57,8 @@ root.render(
           <Route path="addProfilePic" element={<AddProfilePic />} />
           <Route path="editProfile" element={<EditProfile />} />
           <Route path="editPostPicture" element={<EditPostPicture />} />
+          <Route path="viewPendingRequest" element={<ViewPendingRequest />} />
+          <Route path="viewFriends" element={<ViewFriends />} />
           <Route path="logout" element={<Logout />} />
          </Route> 
 
@@ -62,6 +67,7 @@ root.render(
           <Route path="allUser" element={<ViewAllUser />} />
           <Route path="allPosts" element={<ViewAllPosts />} />
           <Route path="adminProfile" element={<ViewAdminProfile />} />
+          <Route path="allComments/:postid" element={<ViewAllComments />} />
           <Route path="logout" element={<Logout />} />
         </Route>
       </Routes>

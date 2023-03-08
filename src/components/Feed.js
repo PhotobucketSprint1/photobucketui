@@ -2,13 +2,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import FriendCard from "../views/FriendCard";
 import PostCard from "../views/PostCard";
+import FeedCard from "./FeedCard";
 
 function Feed(){
 
     const userid = sessionStorage.getItem("userid");
     const [ friendPosts, setFriendPosts ] = useState([]);
+    const [ posts, setPosts ] = useState([]);
+
     useEffect(()=>{
-        axios.get(`http://localhost:8080/user/following-users?userId=4`)
+        axios.get(`http://localhost:8080/user/friendsPosts/${userid}`)
             .then((res)=>{
                 console.log(res.data);
                 setFriendPosts(res.data);
@@ -19,12 +22,16 @@ function Feed(){
     },[]);
 
     return(<div>
-        <h4>User can see All posts</h4>
+        <h4 style={{marginLeft:"450px"}}>Feed</h4> <br />
         {  
             friendPosts.map((friend)=>{
-                return <PostCard id={friend.id} title={friend.title} description={friend.description} />
+                return friend.map((fr)=>{
+                    console.log(fr);
+                    return fr.blocked ? <p></p> : <div style={{marginLeft : "150px"}} class="col-md-8"><FeedCard id={fr.id} title={fr.title} description={fr.description} blocked={fr.blocked} enableDelete={true} enableEditPic={true} /><br/></div> 
+                })
             })
         }
+
     </div>)
 }
 

@@ -13,7 +13,7 @@ function UserDetails(props){
                 <p>UserName</p>
                 <p>Email Id</p> <br/><br/>
                 <Link to="/user/dashboard/editProfile" className="btn btn-success">Edit Profile</Link><br/><br/>
-                <Link to="/user/dashboard/followerButton" className="btn btn-primary">Followers</Link>
+                {/* <Link to="/user/dashboard/followerButton" className="btn btn-primary">Followers</Link> */}
             </div>
             <div className="col-md-3">
                 <p>{props.username}</p>
@@ -21,7 +21,7 @@ function UserDetails(props){
                 <Link to="/user/dashboard/addProfilePic" className="btn btn-primary">Add/Change Profile Pic</Link>
                 <br/>
                 <br/>
-                <Link to="/user/dashboard/followingButton" className="btn btn-primary">Following</Link>
+                {/* <Link to="/user/dashboard/followingButton" className="btn btn-primary">Following</Link> */}
             </div>
             </div>
         </div>
