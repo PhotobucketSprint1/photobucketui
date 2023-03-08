@@ -88,8 +88,10 @@ Password  <br/>
 <Button style={{marginLeft:"50px"}} variant="contained" onClick={handleButton} >Login</Button> <br/><br/>
 {/* <Link to="/register" style={{textDecoration:"none"}}> <p>Don't Have Account ?</p> </Link> */}
 <p style={{color:"red"}}>{message}</p><br/><br/>
+<p style={{marginLeft : '-50px', color:"red"}}>*You need to contact admin for registration*</p>
 </div>
 </Paper>
+
         </div>
     )
 }

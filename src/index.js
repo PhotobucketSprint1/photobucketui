@@ -32,6 +32,7 @@ import AdminLogin from './components/admin components/AdminLogin';
 import ViewPendingRequest from './components/ViewPendingRequest';
 import ViewFriends from './components/ViewFriends';
 import ViewAllComments from './components/admin components/ViewAllComments';
+import AdminSignup from './components/admin components/AdminSignup';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -46,6 +47,7 @@ root.render(
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/photobucket/admin/register" element={<AdminSignup />} />
         
         
         <Route path="/user/dashboard" element={<Dashboard />} >
