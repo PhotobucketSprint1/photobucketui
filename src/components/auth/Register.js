@@ -136,8 +136,8 @@ function Register(){
           <input className="form-control" data-testid="imageTest" accept="image/jpeg,image/png,image/gif" type="file" onChange={handleImg} />
         </div> 
         <p style={{color:'red'}}>{fileV}</p>
-        <button type="submit" className="btn btn-primary" data-testid="registerBtnTest" onClick={handleButton}>Register</button>
-        
+        <button type="submit" className="btn btn-primary" data-testid="registerBtnTest" onClick={handleButton}>Register</button><br/>
+        <Link to="/login" style={{textDecoration:"none"}}> <p>Already Have Account ?</p> </Link>
       </form>
       </div>
         </div>
