@@ -1,4 +1,5 @@
 import { render, fireEvent, screen,  } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 
 import Register from "../components/auth/Register";
 
@@ -7,7 +8,7 @@ import Register from "../components/auth/Register";
 describe('Register component', () => {
 test("User Register test", async() => {
 
-render(<Register />);
+render(<BrowserRouter><Register /></BrowserRouter>);
 
 //select the elements you want to interact with
 
@@ -37,7 +38,7 @@ expect(msg.textContent).toBe("User Added !")
 
 
 test("Registration Validation Test", async()=>{
-    render(<Register />);
+    render(<BrowserRouter><Register /></BrowserRouter>);
 
 
     const username = screen.getByTestId("usernameTest");

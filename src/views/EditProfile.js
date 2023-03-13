@@ -69,6 +69,7 @@ function EditProfile(props){
     return(
         <div>
             <SuccessMsg msg="Profile Updated" status={show} />
+            <div style={{marginLeft:"200px"}}>
             <div className="form-group col-md-6">
                 <label>Username</label>
                 <input type="text" className="form-control" data-testid="usernameTest" onChange={(e)=>{
@@ -86,6 +87,7 @@ function EditProfile(props){
             <br/>
             <button className="btn btn-primary" data-testid="editBtnTest"  onClick={saveProfile}>Save</button> &nbsp;&nbsp;
             <Link to="/user/dashboard/userProfile" type="submit" className="btn btn-primary" >Back</Link>
+            </div>
         </div>
     )
 }

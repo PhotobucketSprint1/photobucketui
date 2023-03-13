@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import AfterNavbar from "../views/AfterNavbar";
 import LeftSideMenu from "../views/LeftSideMenu";
-
 import NavigationBar from "./Navigationbar";
 
 function Dashboard(){   
@@ -12,6 +11,7 @@ function Dashboard(){
     const [ userName, setUserName ] = useState();
     const [ userid, setUserid ] = useState();
     var navigate = useNavigate();
+    const [ show, setShow ] = useState(true);
 
 
     useEffect(()=>{
@@ -28,6 +28,7 @@ function Dashboard(){
                     setUserid(res.data);
                     console.log(res.data);
                     sessionStorage.setItem("userid", res.data);
+                    setShow(false);
                 })
                 .catch((err)=>{
                     console.log(err);
@@ -49,7 +50,7 @@ function Dashboard(){
         
         <div className="row" style={{marginTop:"60px"}}>
             <LeftSideMenu />
-            <div className="col-md-10" >
+            <div className="col-md-10">
                 <Outlet />
             </div>
         </div>

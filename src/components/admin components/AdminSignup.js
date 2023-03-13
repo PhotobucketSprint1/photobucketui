@@ -99,7 +99,7 @@ function AdminSignup(){
     </div>
     <p style={{color:'red'}}>{emailValidation}</p>
     <button type="submit" className="btn btn-primary" data-testid="registerBtnTest" onClick={handleButton}>Register</button>
-    
+    <Link to="/admin/login" style={{textDecoration:"none"}}> <p>Already Have Account ?</p> </Link>
   </form>
   </div>
     </div>

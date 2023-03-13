@@ -146,7 +146,7 @@ function ViewAllPosts(props){
                     }}>Block Post</button>
                     <button className="btn btn-success" style={{backgroundColor:'mediumaquamarine'}} onClick={()=>{
                         handleUnBlockPost(post.id)
-                        }}>UnBlock User</button>
+                        }}>UnBlock Post</button>
                         <button className="btn btn-success" style={{backgroundColor:'olive'}} onClick={()=>{
                         viewAllComments(post.id)
                         }}>View Comments</button>
