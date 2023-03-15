@@ -40,7 +40,7 @@ function ViewAllComments(){
   };
   const handleUnBlockComment = (commentId) => {
 
-    axios.post("http://localhost:8080/admin/unblockPost", { id: commentId })
+    axios.post("http://localhost:8080/admin/unblockComment", { id: commentId })
       .then(response => {
         console.log(response.data);
         setMessage("comment UnBlocked");
